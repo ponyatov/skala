@@ -1,16 +1,20 @@
 package metaL
 
 import frame._
-import linux._
 
 object metaL {
   
   val hello = new Frame("hello", "world")
+  
+  var vm = new VM("FORTH")
+  
+  vm << new Cmd("NOP",(vm)=>{})
 
   def main(args: Array[String]) = {
     for (a <- args) println(a)
     
-    hello_c.hello() 
+    println(vm)
+    
   }
 
 }
