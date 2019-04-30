@@ -2,11 +2,12 @@
 OS ?= linux
 
 CFLAGS += -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/$(OS)
-CFLAGS += -fpic
+#CFLAGS += -fpic
+CFLAGS += -shared
 
 hello_c_wrap.so: hello_c_wrap.c Makefile
-	$(CC) $(CFLAGS) -c -o $<.o $<
-	$(LD) -G $<.o -o $@
+	$(CC) $(CFLAGS) -o $@ $<
+#	$(LD) -G $<.o -o $@
 	sudo cp $@ /usr/local/lib/skala/$@
 
 hello_c_wrap.c hello_c.java: hello_c.i hello.c Makefile
