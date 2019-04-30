@@ -1,0 +1,5 @@
+package jx;
+
+class Hello {
+	
+}
