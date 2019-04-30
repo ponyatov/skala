@@ -1,6 +1,7 @@
 package metaL
 
 import frame._
+import swig.hello_c
 
 object metaL {
   
@@ -8,6 +9,8 @@ object metaL {
 
   def main(args: Array[String]) = {
     for (a <- args) println(a)
+    
+    hello_c.hello() 
   }
 
 }

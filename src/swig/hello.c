@@ -1,1 +1,1 @@
-void hello() { } // printf("Hello.c"); }
+void hello(void) { } // printf("Hello.c"); }
