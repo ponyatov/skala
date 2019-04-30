@@ -1,1 +1,1 @@
-extern void hello();
+extern void hello(void);

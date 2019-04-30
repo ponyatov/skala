@@ -1,4 +1,6 @@
+
 %module hello_c
+
 %{
 #include <stdlib.h>
 #include "hello.h"

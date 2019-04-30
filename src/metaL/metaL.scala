@@ -1,7 +1,7 @@
 package metaL
 
 import frame._
-import swig.hello_c
+import linux._
 
 object metaL {
   

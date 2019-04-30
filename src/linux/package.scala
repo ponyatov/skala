@@ -1,5 +1,5 @@
 
 
-package linux swig {
+package object linux {
   
 }
