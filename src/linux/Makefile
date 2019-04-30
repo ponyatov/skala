@@ -10,4 +10,4 @@ hello_c_wrap.so: hello_c_wrap.c Makefile
 #	$(LD) -G $<.o -o $@
 
 hello_c_wrap.c hello_c.java: hello_c.i hello.c Makefile
-	swig -java -package swig $<
+	swig -java -package linux $<
