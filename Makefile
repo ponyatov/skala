@@ -1,5 +1,6 @@
 
 doxy:
+	make -C wiki
 	rm -rf docs ; doxygen doxy.gen 1>/dev/null
 	
 update:
