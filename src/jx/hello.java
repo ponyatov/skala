@@ -1,5 +1,0 @@
-package jx;
-
-class Hello {
-	
-}

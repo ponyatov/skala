@@ -2,8 +2,8 @@
 
 package jx
 
-import jx.Hello
+//import Hello
 
 object jx {
-	Hello
+  Hello.hello                                     //> res0: String("World") = World
 }
