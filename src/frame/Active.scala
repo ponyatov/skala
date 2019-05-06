@@ -1,3 +1,4 @@
 package frame
 
-class Active(T: String = "active", V: String) extends Frame(T, V) { }
+/** executable objects */
+class Active(T: String = "active", V: String) extends Frame(T, V)

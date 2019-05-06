@@ -2,34 +2,37 @@ package frame
 
 import scala.collection.mutable.Map
 import scala.collection.mutable.ArrayBuffer
+import scala.ref.WeakReference
 
-class Frame(T: String = "frame", V: String) {
+/** generic frame 
+ *  @param T type/class tag
+ *  @param V primitive value /implementation language type/
+ *  */
+
+class Frame(val T: String = "frame", var V: String) {
   
-                                                              /** type/class tag */ 
-  val typez = T
-                                                              /** implementation language type primitive value */
-  var value = V
-                                                              /** attributes = slots = associative array */
+                                                                    /** attributes = slots = associative array */
   var slot  = Map[String, Frame]()
-                                                              /** nested elements = vector = stack */
+                                                                    /** nested elements = vector = stack */
   var nest  = ArrayBuffer[Frame]()
-  
-  override def toString = dump()
-                                                              /** short object dump in <type:value> form */
-  def head(prefix:String = "") = 
-    s"$prefix<$typez:$value>"
-                                                              /** left pad for tree dump */
-  def pad(N: Int) = "\n" + "\t" * N
-                                                              /** dump in full tree form */
+
+                                                                    /** short object dump in <type:value> form */
+  def head(prefix:String = "") =
+    s"$prefix<T:V> @$WeakReference(this)"
+                                                                    /** left pad for tree dump */
+  def pad(N: Int): String = "\n" + "\t" * N
+                                                                    /** dump in full tree form */
   def dump(depth: Int = 0, prefix: String = ""): String = {
-    var T = pad(depth) + head(prefix)
-    for ((k, v) <- slot) T += v.dump(depth + 1, prefix = s"$k = ")
-    for (    j  <- nest) T += j.dump(depth + 1)
-    return T
+    var tmp = pad(depth) + head(prefix)
+    for ((k, v) <- slot) tmp += v.dump(depth + 1, prefix = s"$k = ")
+    for (    j  <- nest) tmp += j.dump(depth + 1)
+    return tmp
   }
-  
-                                                              /** push object as slot with same name `A.B = B` */    
+
+  override def toString = dump()
+
+                                                                    /** push object as slot with same name `A.B = B` */
   def <<(obj: Cmd) = {
-    slot(obj.value) = obj ; this }
-  
+    slot(obj.V) = obj ; this }
+
 }

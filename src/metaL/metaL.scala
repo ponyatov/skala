@@ -1,20 +1,9 @@
 package metaL
 
-import frame._
+import scala.App
 
-object metaL {
-  
-  val hello = new Frame("hello", "world")
-  
-  var vm = new VM("FORTH")
-  
-  vm << new Cmd("NOP",(vm)=>{})
+object metaL extends App {
 
-  def main(args: Array[String]) = {
-    for (a <- args) println(a)
-    
-    println(vm)
-    
-  }
+  println(args.mkString(" "))
 
 }

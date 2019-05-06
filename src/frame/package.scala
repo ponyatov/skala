@@ -1,5 +1,2 @@
-
-
-package object frame {
-  
-}
+/** Marvin Minsky frame model */
+package object frame

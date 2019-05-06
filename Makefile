@@ -1,7 +1,12 @@
 all:
 
+APP += src/frame src/metaL
+APP += build.sbt project/*.sbt project/build.*
+APP += src/app src/hw
+APP += src/emc
+
 merge:
-	git checkout ponyatov -- src/frame src/metaL
+	git checkout ponyatov -- $(APP)
 
 NOW = $(shell date +%d%m%y)
 

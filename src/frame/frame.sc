@@ -1,7 +1,5 @@
-package frame
+import frame._
 
-object frame {
+new Frame("hello", "world")
 
-	new Frame("hello", "world")               //> res0: frame.Frame = <hello:world>
-
-}
+val vm = new VM("FORTH")
